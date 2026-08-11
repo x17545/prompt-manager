@@ -296,7 +296,8 @@ def main():
             show_favorites()
 
         else:
-            print("잘못된 번호입니다. 다시 선택해주세요.")
+            print(f"입력한 메뉴 번호 '{choice}'는 올바르지 않습니다.")
+            print("0부터 7 사이의 번호를 선택해주세요.")
 
 
 if __name__ == "__main__":
