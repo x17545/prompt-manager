@@ -91,7 +91,56 @@ def show_list():
             f"| 카테고리: {prompt['category']} "
             f"{favorite_mark}"
         )
-        
+
+def show_category():
+    """카테고리를 선택하여 해당 프롬프트를 보여줍니다."""
+    print("\n[카테고리별 조회]")
+
+    categories = [
+        "텍스트 생성",
+        "이미지 생성",
+        "영상 생성",
+        "페르소나",
+        "자동화",
+        "기타"
+    ]
+
+    print("카테고리를 선택하세요.")
+
+    for index, category in enumerate(categories, start=1):
+        print(f"{index}. {category}")
+
+    while True:
+        category_choice = input("카테고리 번호를 입력하세요: ").strip()
+
+        if category_choice.isdigit():
+            category_index = int(category_choice)
+
+            if 1 <= category_index <= len(categories):
+                selected_category = categories[category_index - 1]
+                break
+
+        print("올바른 카테고리 번호를 입력해주세요.")
+
+    found = False
+
+    print(f"\n[{selected_category}] 프롬프트")
+
+    for index, prompt in enumerate(prompts, start=1):
+        if prompt["category"] == selected_category:
+            favorite_mark = "⭐" if prompt["favorite"] else ""
+
+            print(
+                f"{index}. {prompt['title']} "
+                f"| 카테고리: {prompt['category']} "
+                f"{favorite_mark}"
+            )
+
+            found = True
+
+    if not found:
+        print("해당 카테고리에 등록된 프롬프트가 없습니다.")
+
 def show_menu():
     """프로그램의 메인 메뉴를 출력합니다."""
     print("\n" + "=" * 40)
@@ -127,7 +176,10 @@ def main():
         elif choice == "2":
             show_list()
 
-        elif choice in ["3", "4", "5", "6", "7"]:
+        elif choice == "3":
+            show_category()
+    
+        elif choice in ["4", "5", "6", "7"]:
             print("해당 기능은 다음 단계에서 구현합니다.")
 
         else:
