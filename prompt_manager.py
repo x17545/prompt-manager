@@ -200,6 +200,79 @@ def show_detail():
     print(prompt["content"])
     print("=" * 40)
 
+def edit_prompt():
+    """선택한 프롬프트의 내용을 수정합니다."""
+    print("\n[프롬프트 수정]")
+
+    if not prompts:
+        print("등록된 프롬프트가 없습니다.")
+        return
+
+    while True:
+        number = input("수정할 프롬프트 번호를 입력하세요: ").strip()
+
+        if number.isdigit():
+            index = int(number)
+
+            if 1 <= index <= len(prompts):
+                prompt = prompts[index - 1]
+                break
+
+        print("올바른 프롬프트 번호를 입력해주세요.")
+
+    print(f"\n현재 제목: {prompt['title']}")
+    print(f"현재 내용: {prompt['content']}")
+    print(f"현재 카테고리: {prompt['category']}")
+
+    while True:
+        title = input("새 제목을 입력하세요: ").strip()
+
+        if title:
+            break
+
+        print("제목은 비워둘 수 없습니다.")
+
+    while True:
+        content = input("새 내용을 입력하세요: ").strip()
+
+        if content:
+            break
+
+        print("내용은 비워둘 수 없습니다.")
+
+    categories = [
+        "텍스트 생성",
+        "이미지 생성",
+        "영상 생성",
+        "페르소나",
+        "자동화",
+        "기타"
+    ]
+
+    print("\n새 카테고리를 선택하세요.")
+
+    for index, category in enumerate(categories, start=1):
+        print(f"{index}. {category}")
+
+    while True:
+        category_choice = input("카테고리 번호를 입력하세요: ").strip()
+
+        if category_choice.isdigit():
+            category_index = int(category_choice)
+
+            if 1 <= category_index <= len(categories):
+                category = categories[category_index - 1]
+                break
+
+        print("올바른 카테고리 번호를 입력해주세요.")
+
+    prompt["title"] = title
+    prompt["content"] = content
+    prompt["category"] = category
+
+    print("\n프롬프트가 수정되었습니다.")
+
+
 def toggle_favorite():
     """프롬프트의 즐겨찾기를 추가하거나 해제합니다."""
     print("\n[즐겨찾기 관리]")
@@ -257,6 +330,7 @@ def show_menu():
     print("5. 프롬프트 상세 보기")
     print("6. 즐겨찾기 관리")
     print("7. 즐겨찾기 목록 보기")
+    print("8. 프롬프트 수정")
     print("0. 종료")
     print("=" * 40)
 
@@ -296,9 +370,12 @@ def main():
         elif choice == "7":
             show_favorites()
 
+        elif choice == "8":
+            edit_prompt()
+
         else:
             print(f"입력한 메뉴 번호 '{choice}'는 올바르지 않습니다.")
-            print("0부터 7 사이의 번호를 선택해주세요.")
+            print("0부터 8 이의 번호를 선택해주세요.")
 
 
 if __name__ == "__main__":
