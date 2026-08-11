@@ -5,19 +5,22 @@ prompts = [
         "title": "블로그 글 작성",
         "content": "주어진 주제로 초보자도 이해하기 쉬운 블로그 글을 작성해줘.",
         "category": "텍스트 생성",
-        "favorite": False
+        "favorite": False,
+        "views": 0
     },
     {
         "title": "이미지 생성 프롬프트",
         "content": "고품질의 사실적인 풍경 이미지를 생성하기 위한 프롬프트를 작성해줘.",
         "category": "이미지 생성",
-        "favorite": False
+        "favorite": False,
+        "views": 0
     },
     {
         "title": "업무 자동화 아이디어",
         "content": "반복적인 업무를 자동화할 수 있는 아이디어를 구체적인 단계로 제안해줘.",
         "category": "자동화",
-        "favorite": False
+        "favorite": False,
+        "views": 0
     }
 ]
 
@@ -68,7 +71,8 @@ def add_prompt():
         "title": title,
         "content": content,
         "category": category,
-        "favorite": False
+        "favorite": False,
+        "views": 0
     }
 
     prompts.append(new_prompt)
@@ -186,6 +190,7 @@ def show_detail():
 
             if 1 <= index <= len(prompts):
                 prompt = prompts[index - 1]
+                prompt["views"] += 1
                 break
 
         print("올바른 프롬프트 번호를 입력해주세요.")
@@ -196,6 +201,7 @@ def show_detail():
     print(f"제목: {prompt['title']}")
     print(f"카테고리: {prompt['category']}")
     print(f"즐겨찾기: {favorite_mark}")
+    print(f"조회수: {prompt['views']}")
     print("내용:")
     print(prompt["content"])
     print("=" * 40)
