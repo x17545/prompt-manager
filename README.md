@@ -114,3 +114,43 @@ while True:
 
 ```bash
 python prompt_manager.py
+
+## 브랜치 분리 기준과 병합 시점
+
+이 프로젝트에서는 기능을 개발할 때 `main` 브랜치의 안정적인 상태를 유지하기 위해 기능별로 별도의 브랜치를 생성했습니다.
+
+### 브랜치 분리 기준
+
+새로운 기능을 독립적으로 개발할 필요가 있을 때 `main` 브랜치에서 기능 브랜치를 생성했습니다.
+
+프롬프트 목록 기능을 개발할 때 다음과 같이 `feature/prompt-list` 브랜치를 생성했습니다.
+
+```bash
+git checkout -b feature/prompt-list
+
+feature/prompt-list 브랜치에서는 프롬프트 목록 조회 기능을 개발하고 테스트했습니다.
+
+병합 시점
+
+프롬프트 목록 기능의 구현과 테스트가 완료된 후 해당 기능을 main 브랜치에 병합했습니다.
+
+먼저 main 브랜치로 이동했습니다.
+
+git checkout main
+
+그 다음 기능 브랜치를 main에 병합했습니다.
+git merge feature/prompt-list
+기능 개발과 테스트가 완료된 후 병합함으로써 main 브랜치에는 완성된 기능만 반영되도록 했습니다.
+
+브랜치 작업 흐름
+
+main
+ │
+ ├── feature/prompt-list
+ │       │
+ │       └── 프롬프트 목록 기능 개발 및 테스트
+ │
+ └── main ← feature/prompt-list 병합
+
+ 이와 같이 기능별로 브랜치를 분리하면 기능 개발 중 발생한 문제가 main 브랜치에 바로 영향을 주는 것을 줄일 수 있고, 기능이 완성된 후 안정적으로 병합할 수 있습니다.
+ 
