@@ -271,7 +271,8 @@ def main():
         choice = input("메뉴 번호를 선택하세요: ")
 
         if choice == "0":
-            print("프로그램을 종료합니다.")
+            print("\nPrompt Manager를 종료합니다.")
+            print("이용해주셔서 감사합니다.")
             break
 
         elif choice == "1":
