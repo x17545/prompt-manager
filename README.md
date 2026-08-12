@@ -110,14 +110,15 @@ while True:
 
 따라서 다음과 같은 구조로 데이터를 저장했습니다.
 
- ```text
+```text
  리스트
   ├── 딕셔너리 → 프롬프트 1
   ├── 딕셔너리 → 프롬프트 2
   └── 딕셔너리 → 프롬프트 3
 
- ```bash
- python prompt_manager.py
+```bash
+python prompt_manager.py
+```
 
 ## 브랜치 분리 기준과 병합 시점
 
@@ -129,8 +130,9 @@ while True:
 
 프롬프트 목록 기능을 개발할 때 다음과 같이 `feature/prompt-list` 브랜치를 생성했습니다.
 
- ```bash
+```bash
  git checkout -b feature/prompt-list
+```
 
 feature/prompt-list 브랜치에서는 프롬프트 목록 조회 기능을 개발하고 테스트했습니다.
 
@@ -148,13 +150,13 @@ git merge feature/prompt-list
 
 브랜치 작업 흐름
 
- main
-  │
-  ├── feature/prompt-list
-  │       │
-  │       └── 프롬프트 목록 기능 개발 및 테스트
-  │
-  └── main ← feature/prompt-list 병합
+main
+ │
+ ├── feature/prompt-list
+ │       │
+ │       └── 프롬프트 목록 기능 개발 및 테스트
+ │
+ └── main ← feature/prompt-list 병합
 
 이와 같이 기능별로 브랜치를 분리하면 기능 개발 중 발생한 문제가 main 브랜치에 바로 영향을 주는 것을 줄일 수 있고, 기능이 완성된 후 안정적으로 병합할 수 있습니다.
 
@@ -182,8 +184,9 @@ Git에서 서로 다른 브랜치에서 같은 파일의 같은 부분을 수정
 4. 충돌 표시를 모두 제거하고 파일을 저장합니다.
 5. 다음 명령어로 해결된 파일을 Staging 영역에 추가합니다.
 
- ```bash
+```bash
  git add 파일명
+```
 
 ## 카테고리 변경 방법
 
