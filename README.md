@@ -59,25 +59,26 @@ Python 콘솔에서 다양한 프롬프트를 등록하고 관리할 수 있는 
 
 메인 반복문은 사용자가 메뉴에서 `0. 종료`를 선택하면 종료됩니다.
 
-```python
-while True:
-    show_menu()
+ ```python
+ while True:
+     show_menu()
 
-    choice = input("메뉴 번호를 선택하세요: ")
+     choice = input("메뉴 번호를 선택하세요: ")
 
-    if choice == "0":
-        print("프로그램을 종료합니다.")
-        break
+     if choice == "0":
+         print("프로그램을 종료합니다.")
+         break
 
 반복문의 역할
+
 프로그램이 실행되는 동안 계속해서 메인 메뉴를 보여줍니다.
 사용자가 기능을 선택하면 해당 기능을 실행합니다.
 기능 실행이 끝나면 다시 메인 메뉴로 돌아옵니다.
 잘못된 메뉴 번호를 입력해도 프로그램을 종료하지 않고 다시 메뉴를 보여줍니다.
+
 종료 조건
 
 사용자가 메뉴에서 0을 입력하면 if choice == "0" 조건이 실행됩니다.
-
 이때 break를 사용하여 while True 반복문을 종료하고 프로그램을 종료합니다.
 
 또한 프롬프트 추가 기능에서는 제목, 내용, 카테고리의 올바른 입력이 이루어질 때까지 while 반복문을 사용하여 입력을 다시 요청하도록 구현했습니다.
@@ -108,14 +109,14 @@ while True:
 
 따라서 다음과 같은 구조로 데이터를 저장했습니다.
 
-```text
-리스트
- ├── 딕셔너리 → 프롬프트 1
- ├── 딕셔너리 → 프롬프트 2
- └── 딕셔너리 → 프롬프트 3
+ ```text
+ 리스트
+  ├── 딕셔너리 → 프롬프트 1
+  ├── 딕셔너리 → 프롬프트 2
+  └── 딕셔너리 → 프롬프트 3
 
-```bash
-python prompt_manager.py
+ ```bash
+ python prompt_manager.py
 
 ## 브랜치 분리 기준과 병합 시점
 
@@ -127,8 +128,8 @@ python prompt_manager.py
 
 프롬프트 목록 기능을 개발할 때 다음과 같이 `feature/prompt-list` 브랜치를 생성했습니다.
 
-```bash
-git checkout -b feature/prompt-list
+ ```bash
+ git checkout -b feature/prompt-list
 
 feature/prompt-list 브랜치에서는 프롬프트 목록 조회 기능을 개발하고 테스트했습니다.
 
@@ -146,13 +147,13 @@ git merge feature/prompt-list
 
 브랜치 작업 흐름
 
-main
- │
- ├── feature/prompt-list
- │       │
- │       └── 프롬프트 목록 기능 개발 및 테스트
- │
- └── main ← feature/prompt-list 병합
+ main
+  │
+  ├── feature/prompt-list
+  │       │
+  │       └── 프롬프트 목록 기능 개발 및 테스트
+  │
+  └── main ← feature/prompt-list 병합
 
 이와 같이 기능별로 브랜치를 분리하면 기능 개발 중 발생한 문제가 main 브랜치에 바로 영향을 주는 것을 줄일 수 있고, 기능이 완성된 후 안정적으로 병합할 수 있습니다.
 
@@ -180,8 +181,8 @@ Git에서 서로 다른 브랜치에서 같은 파일의 같은 부분을 수정
 4. 충돌 표시를 모두 제거하고 파일을 저장합니다.
 5. 다음 명령어로 해결된 파일을 Staging 영역에 추가합니다.
 
-```bash
-git add 파일명
+ ```bash
+ git add 파일명
 
 ## 카테고리 변경 방법
 
