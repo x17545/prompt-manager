@@ -324,6 +324,26 @@ def show_favorites():
     if not found:
         print("즐겨찾기한 프롬프트가 없습니다.")
 
+def show_top_prompts():
+    """조회수가 높은 프롬프트를 순서대로 보여줍니다."""
+    print("\n[조회수 TOP 목록]")
+
+    if not prompts:
+        print("등록된 프롬프트가 없습니다.")
+        return
+
+    sorted_prompts = sorted(
+        prompts,
+        key=lambda prompt: prompt["views"],
+        reverse=True
+    )
+
+    for index, prompt in enumerate(sorted_prompts, start=1):
+        print(
+            f"{index}. {prompt['title']} "
+            f"| 조회수: {prompt['views']}"
+        )
+
 def show_menu():
     """프로그램의 메인 메뉴를 출력합니다."""
     print("\n" + "=" * 40)
@@ -337,6 +357,7 @@ def show_menu():
     print("6. 즐겨찾기 관리")
     print("7. 즐겨찾기 목록 보기")
     print("8. 프롬프트 수정")
+    print("9. 조회수 TOP 목록")
     print("0. 종료")
     print("=" * 40)
 
@@ -379,9 +400,12 @@ def main():
         elif choice == "8":
             edit_prompt()
 
+        elif choice == "9":
+            show_top_prompts()    
+
         else:
             print(f"입력한 메뉴 번호 '{choice}'는 올바르지 않습니다.")
-            print("0부터 8 이의 번호를 선택해주세요.")
+            print("0부터 9의 번호를 선택해주세요.")
 
 
 if __name__ == "__main__":
