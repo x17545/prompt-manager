@@ -226,7 +226,6 @@ https://github.com/x17545/prompt-manager
 ## 실행 화면
 
 ### 1. 프로그램 메인 메뉴
-
 ![프로그램 메인 메뉴](01_main_menu.png)
 
 ### 2. 프롬프트 목록
