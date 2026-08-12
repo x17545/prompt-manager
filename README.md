@@ -59,7 +59,6 @@ Python 콘솔에서 다양한 프롬프트를 등록하고 관리할 수 있는 
 
 메인 반복문은 사용자가 메뉴에서 `0. 종료`를 선택하면 종료됩니다.
 
-```markdown
 ```python
 while True:
      show_menu()
@@ -69,7 +68,7 @@ while True:
      if choice == "0":
          print("프로그램을 종료합니다.")
          break
-
+```
 
 반복문의 역할
 
