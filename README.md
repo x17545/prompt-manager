@@ -115,6 +115,7 @@ while True:
   ├── 딕셔너리 → 프롬프트 1
   ├── 딕셔너리 → 프롬프트 2
   └── 딕셔너리 → 프롬프트 3
+```
 
 ```bash
 python prompt_manager.py
@@ -150,6 +151,7 @@ git merge feature/prompt-list
 
 브랜치 작업 흐름
 
+```python
 main
  │
  ├── feature/prompt-list
@@ -157,6 +159,7 @@ main
  │       └── 프롬프트 목록 기능 개발 및 테스트
  │
  └── main ← feature/prompt-list 병합
+```
 
 이와 같이 기능별로 브랜치를 분리하면 기능 개발 중 발생한 문제가 main 브랜치에 바로 영향을 주는 것을 줄일 수 있고, 기능이 완성된 후 안정적으로 병합할 수 있습니다.
 
